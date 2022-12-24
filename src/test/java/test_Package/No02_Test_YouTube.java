@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class No02_Test {
+public class No02_Test_YouTube {
 
     public static void main(String[] args) throws InterruptedException {
 
