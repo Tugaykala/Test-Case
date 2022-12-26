@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class No4_Test_SahibindenAssertion {
+public class No04_Test_SahibindenAssertion {
 
     // "https://www.sahibinden.com" Adresine gidin farkli test method'lari olsuturun
     //      -- Sayfa Url'nin => "https://www.sahibinden.com" a esit oldugunu test edin
