@@ -15,17 +15,6 @@
     </properties>
 
     <dependencies>
-        <!--Maven sayesinde projemiz icin gerekli olan tum kutuphanelerin
-           gitHub adreslerini buraya yazmamiz yeterli olacak
-           gitHub adreslerini bulam ve bu projenin anlayacagi halde buraya ekleme
-           isini mvnrepository.com'dan yapacagiz
-
-           pom.xml projemize ekleyecegimiz kutuphaneleri yonetmemizi saglar
-           pom.xml maven projesinin kalbidir.
-
-           pom.xml'e ekleyecegimiz dependency ve plug-in'ler sayesinde
-           projemizi cok daha efektif olarak yonetebiliriz
-           -->
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
