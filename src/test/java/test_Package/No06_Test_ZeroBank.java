@@ -1,19 +1,14 @@
 package test_Package;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import utilities.ReusbleMethods;
+import utilities.TestBase;
 
-import java.time.Duration;
-
-public class No06_Test_ZeroBank {
+public class No06_Test_ZeroBank extends TestBase {
 
     // 1- "https://www.http://zero.webappsecurity.com" Adresine gidin
     // 2- Sign in butonuna basin
@@ -29,22 +24,6 @@ public class No06_Test_ZeroBank {
     // 12- "Calculate Costs" butonuna basin sonra "purchase" butonuna basin
     // 13- "Foreign currency cash was successfully purshased" yazisinin ciktigini kontrol edin
 
-    WebDriver driver;
-
-    @Before
-    public  void setUp (){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-    }
-
-    @After
-    public void teardown () throws InterruptedException {
-        Thread.sleep(2000);
-        driver.close();
-    }
 
     @Test
     public void test01 () throws InterruptedException {
@@ -76,23 +55,23 @@ public class No06_Test_ZeroBank {
         WebElement currency = driver.findElement(By.xpath("//select[@id='pc_currency']"));
         Select select = new Select(currency);
         select.selectByVisibleText("Eurozone (euro)");
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         // 9- "amaount" kutusuna bir sayi girin
         driver.findElement(By.xpath("//input[@id='pc_amount']")).sendKeys("100");
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         // 10- "US Dolars" in secilmedigini test edin
         WebElement dolarsKontrol = driver.findElement(By.id("pc_inDollars_true"));
         if (dolarsKontrol.isDisplayed());
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         // 11- "Selected currency" butonunu secin
         WebElement selectButon = driver.findElement(By.id("pc_inDollars_false"));
         if (!selectButon.isSelected()){
             selectButon.click();
         }
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         Assert.assertTrue(selectButon.isSelected());
 
@@ -104,7 +83,7 @@ public class No06_Test_ZeroBank {
 
         Assert.assertTrue(gorunurTest.isDisplayed());
 
-
+        ReusbleMethods.bekle(2);
 
     }
 }

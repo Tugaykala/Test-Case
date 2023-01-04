@@ -1,20 +1,17 @@
 package test_Package;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
+
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.ReusbleMethods;
+import utilities.TestBase;
 
-import java.time.Duration;
 import java.util.Set;
 
-public class No07_Test_Trendyol {
+public class No07_Test_Trendyol extends TestBase {
 
 
     // https://www.trendyol.com adresine gidin
@@ -24,22 +21,6 @@ public class No07_Test_Trendyol {
     // daha sonra ürünün göründüğünü test edin
     // sepete gönderip sepette oldugunu test edin
     // sonra ilk sayfaya donus yapip anasayfaya tiklayin
-
-    WebDriver driver;
-
-    @Before
-    public void setUp (){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-    }
-
-    @After
-    public void teardown (){
-        driver.quit();
-    }
 
     @Test
     public void test01() throws InterruptedException {
@@ -55,18 +36,18 @@ public class No07_Test_Trendyol {
         // Nutella aratın ve nutella yazdiğini dogrulayin
         driver.findElement(By.xpath("//input[@data-testid='suggestion']"))
                 .sendKeys("Nutella"+ Keys.ENTER);
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         // Nutella aratın ve nutella yazdiğini dogrulayin
         String exceptedKelime = "Nutella";
         String actualKelime = driver.findElement(By.tagName("h1")).getText();
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         Assert.assertEquals(exceptedKelime,actualKelime);
 
         // ilk ürünü tıklayin
         driver.findElement(By.xpath("//div[@data-id='38082609']")).click();
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         // daha sonra ürünün göründüğünü test edin
         Set<String> tumWHDegerleri = driver.getWindowHandles();
@@ -88,14 +69,14 @@ public class No07_Test_Trendyol {
 
         Assert.assertEquals(exceptedYeniSayfaYazi,actualYeniSayfaYazi);
 
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         // sepete gönderip sepette oldugunu test edin
         driver.findElement(By.xpath("//div[text()='Sepete Ekle']")).click();
-        Thread.sleep(1000);
+        ReusbleMethods.bekle(1);
 
         driver.findElement(By.xpath("//p[text()='Sepetim']")).click();
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
         WebElement sepettekiUrun = driver.findElement(By.xpath("//div[@class='pb-basket-item']"));
 
@@ -105,7 +86,7 @@ public class No07_Test_Trendyol {
         driver.switchTo().window(ilkSayfaWHD);
         driver.findElement(By.xpath("//a[@id='logo']")).click();
 
-        Thread.sleep(2000);
+        ReusbleMethods.bekle(2);
 
     }
 }
