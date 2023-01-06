@@ -2,18 +2,17 @@ package test_Package;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import utilities.TestBase;
 
 import java.time.Duration;
 
-public class No04_Test_SahibindenAssertion {
+public class No04_Test_SahibindenAssertion  extends TestBase {
 
     // "https://www.sahibinden.com" Adresine gidin farkli test method'lari olsuturun
     //      -- Sayfa Url'nin => "https://www.sahibinden.com" a esit oldugunu test edin
@@ -23,18 +22,6 @@ public class No04_Test_SahibindenAssertion {
 
     static WebDriver driver;
 
-    @BeforeClass
-    public static void setUp (){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        driver.get("https://www.sahibinden.com");
-    }
-    @AfterClass
-    public static void teardown (){
-        driver.close();
-    }
 
     @Test
     public void Urltest01 (){

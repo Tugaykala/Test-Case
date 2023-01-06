@@ -1,10 +1,10 @@
 package test_Package;
 
-import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import utilities.ReusbleMethods;
 import utilities.TestBase;
 

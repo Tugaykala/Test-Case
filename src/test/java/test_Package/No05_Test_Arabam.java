@@ -1,37 +1,23 @@
 package test_Package;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import utilities.TestBase;
+
 
 import java.time.Duration;
 
-public class No05_Test_Arabam {
+public class No05_Test_Arabam extends TestBase {
 
     WebDriver driver;
 
-    @Before
-    public void setUp (){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        System.out.println("before methodu calisti");
 
-    }
-    @After
-    public void teardown() throws InterruptedException {
-        driver.close();
-        Thread.sleep(2000);
-        System.out.println("After methodu calisti");
-    }
     @Test
     public void test ()  {
 
