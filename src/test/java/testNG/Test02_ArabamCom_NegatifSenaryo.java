@@ -4,6 +4,7 @@ package testNG;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Arabam_comPage;
+import utilities.ConfingReader;
 import utilities.Driver;
 import utilities.ReusbleMethods;
 
@@ -17,13 +18,13 @@ public class Test02_ArabamCom_NegatifSenaryo {
 
     Arabam_comPage arabam_comPage = new Arabam_comPage();
 
-    @Test
+    @Test (priority = 5)
     public void yanlisEmail (){
 
-        Driver.getDriver().get("https://www.arabam.com");
+        Driver.getDriver().get(ConfingReader.getProperty("ArabamComUrl"));
         arabam_comPage.girisButonu.click();
-        arabam_comPage.emailKutusu.sendKeys("tugay@gmail.com");
-        arabam_comPage.passworsKutusu.sendKeys("Tk.1234567");
+        arabam_comPage.emailKutusu.sendKeys(ConfingReader.getProperty("ArabamGecersizEmail"));
+        arabam_comPage.passworsKutusu.sendKeys(ConfingReader.getProperty("ArabamGecerliPassword"));
         arabam_comPage.girisYapButtonu.click();
 
         Assert.assertTrue(arabam_comPage.emailKutusu.isDisplayed(),"giris yapilmadi");
@@ -32,13 +33,14 @@ public class Test02_ArabamCom_NegatifSenaryo {
         Driver.closeDriver();
     }
 
-    @Test
+    @Test (priority = 7)
     public void yanlisPassword (){
 
-        Driver.getDriver().get("https://www.arabam.com");
+        Driver.getDriver().get(ConfingReader.getProperty("ArabamComUrl"));
+        arabam_comPage = new Arabam_comPage();
         arabam_comPage.girisButonu.click();
-        arabam_comPage.emailKutusu.sendKeys("kala_tugay@hotmail.com");
-        arabam_comPage.passworsKutusu.sendKeys("Tk.1234000");
+        arabam_comPage.emailKutusu.sendKeys(ConfingReader.getProperty("ArabamGecerliEmail"));
+        arabam_comPage.passworsKutusu.sendKeys(ConfingReader.getProperty("ArabamGecersizPassword"));
         arabam_comPage.girisYapButtonu.click();
 
         Assert.assertTrue(arabam_comPage.emailKutusu.isDisplayed(),"giris yapilmadi");
@@ -47,13 +49,14 @@ public class Test02_ArabamCom_NegatifSenaryo {
         Driver.closeDriver();
     }
 
-    @Test
+    @Test (priority = 8)
     public void yanlisEmailYanlisPassword (){
 
-        Driver.getDriver().get("https://www.arabam.com");
+        Driver.getDriver().get(ConfingReader.getProperty("ArabamComUrl"));
+        arabam_comPage = new Arabam_comPage();
         arabam_comPage.girisButonu.click();
-        arabam_comPage.emailKutusu.sendKeys("tugay@gmail.com");
-        arabam_comPage.passworsKutusu.sendKeys("Tk.1234000");
+        arabam_comPage.emailKutusu.sendKeys(ConfingReader.getProperty("ArabamGecersizEmail"));
+        arabam_comPage.passworsKutusu.sendKeys(ConfingReader.getProperty("ArabamGecersizPassword"));
         arabam_comPage.girisYapButtonu.click();
 
         Assert.assertTrue(arabam_comPage.emailKutusu.isDisplayed(),"giris yapilmadi");

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Arabam_comPage;
+import utilities.ConfingReader;
 import utilities.Driver;
 import utilities.ReusbleMethods;
 
@@ -16,17 +17,17 @@ public class Test01_ArabamCom {
     public void test(){
 
         // https://www.arabam.com Adresine gidin
-        Driver.getDriver().get("https://www.arabam.com");
+        Driver.getDriver().get(ConfingReader.getProperty("ArabamComUrl"));
 
         // giriş yap butonuna tıklayin
         Arabam_comPage arabam_comPage = new Arabam_comPage();
         arabam_comPage.girisButonu.click();
 
         // Email kutusuna email adresinizi yazin
-        arabam_comPage.emailKutusu.sendKeys("kala_tugay@hotmail.com");
+        arabam_comPage.emailKutusu.sendKeys(ConfingReader.getProperty("ArabamGecerliEmail"));
 
         // Password kutusuna password'ünüzü yazin
-        arabam_comPage.passworsKutusu.sendKeys("Tk.1234567");
+        arabam_comPage.passworsKutusu.sendKeys(ConfingReader.getProperty("ArabamGecerliPassword"));
 
         // Giris Yap butonuna tiklayin
         arabam_comPage.girisYapButtonu.click();
