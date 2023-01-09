@@ -10,6 +10,9 @@ import java.time.Duration;
 
 public class Driver {
 
+    private Driver (){
+
+    }
     static WebDriver driver;
 
     public static WebDriver getDriver (){
@@ -41,7 +44,7 @@ public class Driver {
             }
 
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         }
         return driver;

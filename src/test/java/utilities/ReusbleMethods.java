@@ -20,7 +20,6 @@ public class ReusbleMethods {
 
         }
 
-
     }
     public static void sayfaScrenshotCek (WebDriver driver){
 
@@ -40,7 +39,6 @@ public class ReusbleMethods {
         } catch (IOException e) {
 
         }
-
 
     }
 }

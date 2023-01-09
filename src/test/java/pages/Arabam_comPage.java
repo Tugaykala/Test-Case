@@ -10,7 +10,6 @@ public class Arabam_comPage {
     public  Arabam_comPage(){
         PageFactory.initElements(Driver.getDriver(),this);
 
-
     }
 
     @FindBy (xpath = "//a[@aria-label='Giriş Yap']")

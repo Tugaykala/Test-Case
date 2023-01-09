@@ -18,10 +18,10 @@ public class Test02_ArabamCom_NegatifSenaryo {
 
     Arabam_comPage arabam_comPage = new Arabam_comPage();
 
-    @Test (priority = 5)
+    @Test
     public void yanlisEmail (){
 
-        Driver.getDriver().get(ConfingReader.getProperty("ArabamComUrl"));
+        Driver.getDriver().get("https://www.arabam.com");
         arabam_comPage.girisButonu.click();
         arabam_comPage.emailKutusu.sendKeys(ConfingReader.getProperty("ArabamGecersizEmail"));
         arabam_comPage.passworsKutusu.sendKeys(ConfingReader.getProperty("ArabamGecerliPassword"));
@@ -33,7 +33,7 @@ public class Test02_ArabamCom_NegatifSenaryo {
         Driver.closeDriver();
     }
 
-    @Test (priority = 7)
+    @Test
     public void yanlisPassword (){
 
         Driver.getDriver().get(ConfingReader.getProperty("ArabamComUrl"));
